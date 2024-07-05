@@ -1,0 +1,31 @@
+.add-category-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Separación entre los elementos */
+}
+
+.add-cat-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-btn, .close-btn {
+    padding: 10px 20px;
+    margin-right: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-btn {
+    background-color: #f44336;
+}
+
+.add-btn:hover, .close-btn:hover {
+    opacity: 0.8;
+}

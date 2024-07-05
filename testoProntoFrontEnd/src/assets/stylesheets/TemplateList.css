@@ -1,0 +1,11 @@
+
+
+.button {
+    background-color: white; /* color predeterminado */
+}
+
+.button.editing {
+    background-color: lightblue; /* color cuando isEditing es verdadero */
+}
+
+
