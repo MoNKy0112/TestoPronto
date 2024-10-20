@@ -1,0 +1,27 @@
+/* Estilo del contenedor para que posicione los elementos correctamente */
+.tooltip-container {
+  position: relative;
+  /* display: inline-block; */
+  /* max-width: 300px; */
+  overflow: visible;
+}
+
+/* Estilo del tooltip */
+.tooltip {
+  position: absolute;
+  bottom: 100%; /* Colocarlo justo encima del botón */
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px 4px 12px; 
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1000; /* Asegurarse de que el tooltip esté por encima de otros elementos */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Añadir una sombra para mejorar la visibilidad */
+  max-width: 300px;
+  display: -webkit-box; 
+    -webkit-line-clamp: 4; /* Number of lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

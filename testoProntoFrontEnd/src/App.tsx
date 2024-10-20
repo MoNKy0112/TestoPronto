@@ -1,14 +1,25 @@
 import "@assets/stylesheets/App.css"
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import TemplateManager from "./layouts/TemplateManager.tsx";
+import HeaderPage from "./components/Header.tsx";
+import { UserProvider } from "./context/UserContext.tsx";
 
 function App() {
 
   return (
-    <div>
-      <h1>Text Template App</h1>
-      <TemplateManager />
-
-    </div>
+    <Router>
+      <UserProvider>
+        <div className="app">
+          <HeaderPage />
+          <div className="app-content">
+            <Routes>
+              <Route path="/" element={<TemplateManager />} />
+            </Routes>
+          </div>
+        </div>
+      </UserProvider>
+    </Router>
   );
 }
 

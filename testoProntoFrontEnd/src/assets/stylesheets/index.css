@@ -13,28 +13,38 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Estilos generales para enlaces */
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
+  color: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
+/* Estilos generales para el cuerpo */
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  align-items: center; /* Cambiado de place-items a align-items */
+  justify-content: center; /* Añadido para centrar horizontalmente */
   min-width: 320px;
   min-height: 100vh;
+  font-family: Arial, sans-serif; /* Añadido para definir una fuente por defecto */
+  background-color: #f0f0f0; /* Añadido para definir un color de fondo */
 }
 
+/* Estilos para encabezados */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 0; /* Añadido para eliminar el margen por defecto */
+  color: #333; /* Añadido para definir un color de texto */
 }
 
+/* Estilos generales para botones */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -43,12 +53,16 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  color: white; /* Añadido para definir el color del texto */
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s; /* Añadido para suavizar la transición del color de fondo */
 }
+
 button:hover {
   border-color: #646cff;
+  background-color: #333; /* Añadido para cambiar el color de fondo al pasar el ratón */
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { template } from "../types/types.tsx";
+import { createTemplate } from "../types/types.tsx";
 import "@assets/stylesheets/AddTemplateForm.css";
 
 interface AddTemplateFormProps {
-  onAdd: (template: template,category:string) => void;
+  onAdd: (template: createTemplate, category: string) => void;
   onCancel: () => void;
   categories: string[];
 }
 
-const AddTemplateForm: React.FC<AddTemplateFormProps> = ({ onAdd, onCancel ,categories}) => {
-  const [category,setCategory] = useState(categories[0])
+const AddTemplateForm: React.FC<AddTemplateFormProps> = ({ onAdd, onCancel, categories }) => {
+  const [category, setCategory] = useState(categories[0])
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onAdd({ title, text },category);
+    onAdd({ title, text }, category);
     setTitle('');
     setText('');
     setCategory(categories[0])
@@ -25,8 +25,8 @@ const AddTemplateForm: React.FC<AddTemplateFormProps> = ({ onAdd, onCancel ,cate
     <div className="add-overlay">
       <form onSubmit={handleSubmit} className="add-window">
         <h2>Add New Template</h2>
-        <select onChange={(e)=>setCategory(e.target.value)} required>
-          {categories.map((category)=>
+        <select onChange={(e) => setCategory(e.target.value)} required>
+          {categories.map((category) =>
             <option value={category}>{category}</option>
           )}
         </select>

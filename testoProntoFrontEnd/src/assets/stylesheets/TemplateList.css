@@ -1,11 +1,27 @@
-
-
+/* Estilos para los botones */
 .button {
-    background-color: white; /* color predeterminado */
+  background-color: white; /* Color predeterminado */
+  color: #333; /* Color del texto */
+  margin-bottom: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px 20px; /* Añadido para mejorar el tamaño del botón */
+  border: 1px solid #ccc; /* Añadido para definir un borde */
+  border-radius: 5px; /* Añadido para redondear los bordes */
+  cursor: pointer; /* Añadido para cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s, border-color 0.3s; /* Añadido para suavizar la transición de colores */
+}
+
+.button:hover {
+  background-color: #bbbbbb; /* Añadido para cambiar el color de fondo al pasar el ratón */
+  border-color: #bbb; /* Añadido para cambiar el color del borde al pasar el ratón */
 }
 
 .button.editing {
-    background-color: lightblue; /* color cuando isEditing es verdadero */
+  background-color: lightblue; /* Color cuando isEditing es verdadero */
+  border-color: #007bff; /* Añadido para definir un borde cuando isEditing es verdadero */
 }
 
-
+.button.editing:hover {
+  background-color: #add8e6; /* Añadido para cambiar el color de fondo al pasar el ratón cuando isEditing es verdadero */
+  border-color: #0056b3; /* Añadido para cambiar el color del borde al pasar el ratón cuando isEditing es verdadero */
+}

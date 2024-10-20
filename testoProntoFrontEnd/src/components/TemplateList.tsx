@@ -3,7 +3,8 @@ import "@assets/stylesheets/TemplateList.css"
 import React, { useState } from 'react';
 import TemplateButton from '@components/TemplateButton';
 import TemplateEditor from '@components/TemplateEditor';
-import {template} from "../types/types.tsx";
+import { template } from "../types/types.tsx";
+import { patchRequest } from "../api/api.ts";
 
 interface TemplateListProps {
   templates: template[];
@@ -11,42 +12,54 @@ interface TemplateListProps {
 }
 
 const TemplateList: React.FC<TemplateListProps> = ({ templates, isEditing }) => {
-  // const [templates, setTemplates] = useState<template[]>([{title:"template 1",text:"texto plantilla 1"},{title:"template 2",text:"texto plantilla 2"}]);
   // const [isEditing, setIsEditing] = useState(false);
-  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [editingId, seteditingId] = useState<string | null>(null);
   // const [isAdding, setIsAdding] = useState(false);
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
   };
 
-  const handleEdit = (index: number) => {
-    setEditingIndex(index);
+  const handleEdit = (id: string) => {
+    seteditingId(id);
   };
 
+
+
   const handleSave = (newText: string) => {
-    if (editingIndex !== null) {
-      templates[editingIndex].text = newText;
-      setEditingIndex(null);
+    const fetchTextChange = async (id: string, newText: string) => {
+      try {
+        const response = await patchRequest(`template/${id}`, { text: newText });
+        console.log(response);
+      } catch (error) {
+        console.error('Error posting data:', error);
+        return;
+      }
+    };
+    if (editingId !== null) {
+      templates.find((template) => template._id === editingId)!.text = newText;
+      fetchTextChange(editingId, newText);
+      seteditingId(null);
     }
   };
 
   const handleCancel = () => {
-    setEditingIndex(null);
+    seteditingId(null);
   };
 
   return (
-    <div className={"category"}>
-      {templates.map((template, index) => (
-        <div key={index}>
+    <>
+      {templates.map((template) => (
+        <div key={template._id}>
           <TemplateButton
-            text={template.title}
-            onClick={isEditing ? () => handleEdit(index) : () => handleCopy(template.text)}
+            title={template.title}
+            text={template.text}
+            onClick={isEditing ? () => handleEdit(template._id) : () => handleCopy(template.text)}
             className={`button ${isEditing ? 'editing' : ''}`}
           />
-          {isEditing && editingIndex === index ? <TemplateEditor text={template.text} onSave={handleSave} onCancel={handleCancel}/>:null}
+          {isEditing && editingId === template._id ? <TemplateEditor text={template.text} onSave={handleSave} onCancel={handleCancel} /> : null}
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
