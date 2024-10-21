@@ -1,4 +1,4 @@
-const apiBaseUrl = process.env.API_URI || 'http://localhost:3000/api/';  // URL base de la API
+const apiBaseUrl = import.meta.env.VITE_API_URI || 'http://localhost:3000/api/';  // URL base de la API
 
 const handleResponse = async (response: Response) => {
   if (!response.ok) {

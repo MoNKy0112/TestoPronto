@@ -12,8 +12,7 @@ const LoginForm: React.FC<loginFormProps> = ({ login, onCancel }) => {
 	const [password, setPassword] = useState('');
 
 	const handleLoginWithGoogle = () => {
-		console.log(process.env.API_URI);
-		window.location.href = process.env.API_URI + 'auth/google';
+		window.location.href = import.meta.env.VITE_API_URI + 'auth/google';
 	}
 
 	const handleSubmit = (e: React.FormEvent) => {
