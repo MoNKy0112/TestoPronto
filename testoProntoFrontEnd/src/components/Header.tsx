@@ -54,7 +54,7 @@ const HeaderPage: React.FC = () => {
 		<div className="header-container">
 			<header className="header-content">
 				<img src={user?.picture || Profile} />
-				<div>{user?.username || 'invitado'}</div>
+				<div>{user?.username || process.env.ENV_VAR}</div>
 				<div className="header-buttons">
 					{!user ? (
 						<button onClick={() => setIsLogging(true)}>Login</button>
