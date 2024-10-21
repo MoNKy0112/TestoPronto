@@ -1,4 +1,4 @@
-const apiBaseUrl = import.meta.env.API_URI || 'http://localhost:3000/api/';  // URL base de la API
+const apiBaseUrl = process.env.API_URI || 'http://localhost:3000/api/';  // URL base de la API
 
 const handleResponse = async (response: Response) => {
   if (!response.ok) {
@@ -29,7 +29,7 @@ const fetchWithRetry = async (url: string, options: RequestInit, retry = true) =
     // console.log(response);
     return await handleResponse(response);
   } catch (error) {
-    if (error.message === 'Unauthorized' && retry) {
+    if ((error as Error).message === 'Unauthorized' && retry) {
       await renewToken();
       return fetchWithRetry(url, options, false); // Reintentar la solicitud original
     } else {
