@@ -3,7 +3,7 @@ import '@assets/stylesheets/Header.css';
 import Profile from '@assets/icon/profile.svg';
 
 import React, { useState } from 'react';
-import { postRequest } from '../api/api';
+import { getRequest, postRequest } from '../api/api';
 import LoginForm from '@components/LoginForm';
 import { useUser } from '../context/UserContext';
 
@@ -40,16 +40,26 @@ const HeaderPage: React.FC = () => {
 		setIsLogging(false);
 	}
 
+	const handleLogout = async () => {
+		try {
+			await getRequest('auth/logout');
+			setUser(undefined);
+		} catch (error) {
+			console.error(error)
+			return;
+		}
+	}
+
 	return (
 		<div className="header-container">
 			<header className="header-content">
-				<img src={user?.picrute || Profile} />
+				<img src={user?.picture || Profile} />
 				<div>{user?.username || 'invitado'}</div>
 				<div className="header-buttons">
 					{!user ? (
 						<button onClick={() => setIsLogging(true)}>Login</button>
 					) : (
-						<button onClick={() => setUser(undefined)}>Logout</button>
+						<button onClick={handleLogout}>Logout</button>
 					)}
 				</div>
 			</header>

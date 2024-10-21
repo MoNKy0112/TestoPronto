@@ -1,12 +1,12 @@
-import  "@assets/stylesheets/AddCategoryForm.css"
-import React, {useState} from "react";
+import "@assets/stylesheets/AddCategoryForm.css"
+import React, { useState } from "react";
 
 interface AddCategoryFormProps {
-  addCategory:(categoryName:string)=>void;
+  addCategory: (categoryName: string) => void;
   cancelAddCategory: () => void;
 }
 
-const AddCategoryForm: React.FC<AddCategoryFormProps> = ({cancelAddCategory,addCategory})=> {
+const AddCategoryForm: React.FC<AddCategoryFormProps> = ({ cancelAddCategory, addCategory }) => {
   const [categoryName, setCategoryName] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -15,15 +15,15 @@ const AddCategoryForm: React.FC<AddCategoryFormProps> = ({cancelAddCategory,addC
     setCategoryName('')
   };
 
-  return(
-    <div>
-      <form onSubmit={handleSubmit} className={'add-category-form'}>
+  return (
+    <div className="add-overlay">
+      <form onSubmit={handleSubmit} className={'add-category-form add-window'}>
         <input
           type="text"
           placeholder="Category Name"
           value={categoryName}
           className="add-cat-input"
-          onChange={(e)=>setCategoryName(e.target.value)}
+          onChange={(e) => setCategoryName(e.target.value)}
           required
         />
         <button

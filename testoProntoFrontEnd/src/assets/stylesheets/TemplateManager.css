@@ -11,15 +11,18 @@
   display: inline-flex;
 }
 
-.edit-button, .add-button {
-  background-color: #dddddd; /* color predeterminado */
+.edit-button, .add-button, .add-category-button {
+  background-color: #277cd6; /* color predeterminado */
+  color: white;
   padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin-right: 10px;
 }
 
-.add-category-button {
-  margin: 10px;
-  background-color: #277cd6;
+.edit-button:hover, .add-button:hover, .add-category-button:hover {
+  background-color: #1e5cb7; /* color al pasar el mouse */
 }
 
 .categories {

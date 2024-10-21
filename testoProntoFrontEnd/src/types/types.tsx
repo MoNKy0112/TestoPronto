@@ -17,6 +17,6 @@ export interface category extends createCategory {
 
 export interface user {
   username: string,
-  picrute?: string | undefined,
+  picture?: string | undefined,
   email: string,
 }

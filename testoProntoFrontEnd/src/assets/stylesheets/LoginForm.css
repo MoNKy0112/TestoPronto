@@ -1,0 +1,97 @@
+/* assets/stylesheets/LoginForm.css */
+
+/* Estilo del contenedor del formulario */
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-header {
+  margin-bottom: 20px;
+  /* Mostrar el contenido en horizontal con el titulo en medio y el boton en la esquina derecha*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.login-header h2 {
+  /* mostrar titulo centrado */
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+  width: 100%;
+}
+
+.login-header button {
+  margin-left: auto;
+  padding: 10px;
+  background-color: #d14040;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-header button:hover {
+  background-color: #a13a3a;
+}
+
+/* Estilo del formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Estilo de los campos de entrada */
+.login-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+/* Estilo del botón de envío */
+.login-form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #45a049;
+}
+
+/* Estilo del botón de Google */
+.login-form .google-button {
+  background-color: #dbdbdb;
+  color: #000;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  align-content: center;
+}
+
+.login-form .google-button:hover {
+  background-color: #adadad;
+}
+
+.icon {
+	height: 20px;
+	width: 20px;
+}

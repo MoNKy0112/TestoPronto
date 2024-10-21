@@ -123,6 +123,8 @@ const TemplateManager: React.FC = () => {
       if (user) {
         const categories = await getCategories();
         await getTemplates(categories);
+      } else {
+        setCategories([]);
       }
     }
     fetchData();
@@ -137,12 +139,14 @@ const TemplateManager: React.FC = () => {
         <button onClick={() => setIsAdding(true)} className="add-button">
           Add Template
         </button>
+        <button onClick={() => setIsAddingCategory(true)} className="add-category-button">
+          Add Category
+        </button>
       </div>
       {isAdding &&
         <AddTemplateForm onAdd={handleAddTemplate} onCancel={handleCancelAdd} categories={categories.map(cat => cat.name)} />}
-      {isAddingCategory ?
-        <AddCategoryForm addCategory={handleAddCategory} cancelAddCategory={handleCancelAddCategory}></AddCategoryForm> :
-        <button onClick={() => setIsAddingCategory(true)} className="add-category-button">Add Category</button>}
+      {isAddingCategory &&
+        <AddCategoryForm addCategory={handleAddCategory} cancelAddCategory={handleCancelAddCategory} />}
       <div className="categories">
         { }
         {categories.map((category) => (
